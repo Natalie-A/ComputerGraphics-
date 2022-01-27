@@ -1,10 +1,8 @@
 #include<GL/glut.h>
 #include<string.h>
 #include<math.h>
-#include<stdio.h>
-#include<stdlib.h>
 
-float a = 0, aa = -70;
+double a = 0, aa = -70;
 
 void init(void) {  
     glMatrixMode(GL_PROJECTION);
@@ -13,48 +11,47 @@ void init(void) {
 }
 void fish1()
 {
+    //the body
     glColor3f(1.0, 0.0, 0.0);
     glBegin(GL_POLYGON);
-    glVertex2f(270 + a, 350 + aa);
-
-    glVertex2f(300 + a, 325 + aa);
-
-    glVertex2f(370 + a, 350 + aa);
-    glVertex2f(300 + a, 375 + aa);
+    glVertex2d(367.5 + a, 312.5 + aa);
+    glVertex2d(375 + a, 306.25 + aa);
+    glVertex2d(392.5 + a, 312.5 + aa);
+    glVertex2d(375 + a, 317.75 + aa);
     glEnd();
 
+    //the tail
     glBegin(GL_POLYGON);
-
-    glVertex2f(360 + a, 350 + aa);
+    glVertex2f(390 + a, 312.5 + aa);
     glColor3ub(rand() % 1, rand() % 1000, rand() % 1000);
-    glVertex2f(405 + a, 370 + aa);
-    glVertex2f(395 + a, 350 + aa);
-    glVertex2f(405 + a, 327 + aa);
+    glVertex2f(401.25 + a, 317.5 + aa);
+    glVertex2f(398.75 + a, 312.5 + aa);
+    glVertex2f(401.25 + a, 306.75 + aa);
     glEnd();
 
+    //the upper fin
     glBegin(GL_TRIANGLES);
-
     glColor3ub(rand() % 1, rand() % 1000, rand() % 1000);
-    glVertex2f(302 + a, 373 + aa);
+    glVertex2d(375.5 + a, 318.25 + aa);
     glColor3f(1.0, 0.0, 0.0);
-    glVertex2f(340 + a, 409 + aa);
-    glVertex2f(320 + a, 360 + aa);
+    glVertex2d(385 + a, 327.25 + aa);
+    glVertex2d(380 + a, 315 + aa);
     glEnd();
 
+    //the lower fin
     glBegin(GL_TRIANGLES);
-
     glColor3ub(rand() % 1, rand() % 1000, 0);
-    glVertex2f(302 + a, 328 + aa);
+    glVertex2f(375.5 + a, 307 + aa);
     glColor3f(1.0, 0.0, 0.0);
-    glVertex2f(340 + a, 300 + aa);
-    glVertex2f(320 + a, 340 + aa);
+    glVertex2d(385 + a, 300 + aa);
+    glVertex2d(380 + a, 310 + aa);
     glEnd();
 
-
+    //the eye
     glColor3f(0.0, 0.0, 0.0);
-    glPointSize(4.0);
+    glPointSize(2.0);
     glBegin(GL_POINTS);
-    glVertex2f(280 + a, 355 + aa);
+    glVertex2d(370 + a, 313.75 + aa);
     glEnd();
 }
 
@@ -93,16 +90,27 @@ void display() {
     fish1();
 
     glColor3f(0, 0, 0);
-
     glRasterPos3f(250, 450, 0);
     char msg1[] = "Score:";
     for (int i = 0; i < strlen(msg1); i++)
         glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, msg1[i]);
     glutSwapBuffers();
 }
+void movUp(void) {
+    aa = aa + 10;
+}
+void movDown(void) {
+    aa = aa - 10;
+}
 void keys(unsigned char key,int x,int y) {
     if (key == 'x') {
         glutDisplayFunc(display);
+    }
+    if (key == 'u') {
+        movUp();
+    }
+    if (key == 'd') {
+        movDown();
     }
     glutPostRedisplay();
 }
