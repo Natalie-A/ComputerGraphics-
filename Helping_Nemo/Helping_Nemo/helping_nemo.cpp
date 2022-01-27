@@ -5,6 +5,8 @@
 #include<stdlib.h>
 
 float a = 0, aa = -70;
+int moving = 0;
+void mov(void);
 
 void init(void) {  
     glMatrixMode(GL_PROJECTION);
@@ -58,6 +60,70 @@ void fish1()
     glEnd();
 }
 
+void coral() {
+
+    glBegin(GL_POLYGON);
+
+    glColor3ub(rand() % 1, rand() % 1000, 0);
+    glVertex2f(200 + a, 500 + aa);
+    glVertex2f(200 + a, 400 + aa);
+    glVertex2f(210 + a, 400 + aa);
+    glVertex2f(210 + a, 500 + aa);
+
+    glEnd();
+
+   glBegin(GL_POLYGON);
+
+    glColor3ub(rand() % 1, rand() % 1000, 0);
+    glVertex2f(200 + a, 250 + aa);
+    glVertex2f(200 + a, 10 + aa);
+    glVertex2f(210 + a, 10 + aa);
+    glVertex2f(210 + a, 250 + aa);
+
+    glEnd();
+    
+      glBegin(GL_POLYGON);
+
+    glColor3ub(rand() % 1, rand() % 1000, 0);
+    glVertex2f(120 + a, 500 + aa);
+    glVertex2f(120 + a, 300 + aa);
+    glVertex2f(130 + a, 300 + aa);
+    glVertex2f(130 + a, 500 + aa);
+
+    glEnd();
+    
+     glBegin(GL_POLYGON);
+
+    glColor3ub(rand() % 1, rand() % 1000, 0);
+    glVertex2f(120 + a, 200 + aa);
+    glVertex2f(120 + a, 10 + aa);
+    glVertex2f(130 + a, 10 + aa);
+    glVertex2f(130 + a, 200 + aa);
+
+    glEnd();
+    
+    glBegin(GL_POLYGON);
+
+    glColor3ub(rand() % 1, rand() % 1000, 0);
+    glVertex2f(40 + a, 500 + aa);
+    glVertex2f(40 + a, 450 + aa);
+    glVertex2f(50 + a, 450 + aa);
+    glVertex2f(50 + a, 500 + aa);
+
+    glEnd();
+    
+     glBegin(GL_POLYGON);
+
+    glColor3ub(rand() % 1, rand() % 1000, 0);
+    glVertex2f(40 + a, 350 + aa);
+    glVertex2f(40 + a, 10 + aa);
+    glVertex2f(50 + a, 10 + aa);
+    glVertex2f(50 + a, 350 + aa);
+
+    glEnd();
+
+} 
+
 void welcomeDisplay(void) {
     glClearColor(1, 1, 1, 1);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -87,11 +153,32 @@ void welcomeDisplay(void) {
     glutSwapBuffers();
 
 }
+
+void mov(void) {
+    if (a >= -500)
+        a = a - 7;
+    else
+        a = 700;
+
+    if (a < -500) {
+        aa = aa - 100;
+    }
+
+    if (aa < -251) {
+        aa = 100;
+    }
+}
+
 void display() {
     glClearColor(0.0, 0.6, 0.9, 0.0);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    fish1();
+    if (moving == 1) {
+        mov();
+    }
 
+    fish1();
+    coral();
+    
     glColor3f(0, 0, 0);
 
     glRasterPos3f(250, 450, 0);
