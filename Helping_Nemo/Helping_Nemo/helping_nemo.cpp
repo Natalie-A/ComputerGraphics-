@@ -4,9 +4,11 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-float a = 0, aa = -70;
+float a = 0, aa = -70, b = 0, bb = 0, flag = 0, flag3 = 0, flag4 = 0;
 int moving = 0;
-void mov(void);
+//void create_menu(void);
+//void menu(int);
+//void mov(void);
 
 void init(void) {  
     glMatrixMode(GL_PROJECTION);
@@ -65,60 +67,160 @@ void coral() {
     glBegin(GL_POLYGON);
 
     glColor3ub(rand() % 1, rand() % 1000, 0);
-    glVertex2f(200 + a, 500 + aa);
-    glVertex2f(200 + a, 400 + aa);
-    glVertex2f(210 + a, 400 + aa);
-    glVertex2f(210 + a, 500 + aa);
+    glVertex2f(250 + b, 500 + bb);
+    glVertex2f(250 + b, 341.25 + bb);
+    glVertex2f(255 + b, 341.25 + bb);
+    glVertex2f(255 + b, 500 + bb);
 
     glEnd();
 
    glBegin(GL_POLYGON);
 
     glColor3ub(rand() % 1, rand() % 1000, 0);
-    glVertex2f(200 + a, 250 + aa);
-    glVertex2f(200 + a, 10 + aa);
-    glVertex2f(210 + a, 10 + aa);
-    glVertex2f(210 + a, 250 + aa);
+    glVertex2f(250 + b, 286.25 + bb);
+    glVertex2f(250 + b, 0 + bb);
+    glVertex2f(255 + b, 0 + bb);
+    glVertex2f(255 + b, 286.25 + bb);
 
     glEnd();
     
       glBegin(GL_POLYGON);
 
     glColor3ub(rand() % 1, rand() % 1000, 0);
-    glVertex2f(120 + a, 500 + aa);
-    glVertex2f(120 + a, 300 + aa);
-    glVertex2f(130 + a, 300 + aa);
-    glVertex2f(130 + a, 500 + aa);
+    glVertex2f(187.5 + b, 500 + bb);
+    glVertex2f(187.5 + b, 286.25 + bb);
+    glVertex2f(192.5 + b, 286.25 + bb);
+    glVertex2f(192.5 + b, 500 + bb);
 
     glEnd();
     
      glBegin(GL_POLYGON);
 
     glColor3ub(rand() % 1, rand() % 1000, 0);
-    glVertex2f(120 + a, 200 + aa);
-    glVertex2f(120 + a, 10 + aa);
-    glVertex2f(130 + a, 10 + aa);
-    glVertex2f(130 + a, 200 + aa);
+    glVertex2f(187.5 + b, 231.25 + bb);
+    glVertex2f(187.5 + b, 0 + bb);
+    glVertex2f(192.5 + b, 0 + bb);
+    glVertex2f(192.5 + b, 231.25 + bb);
 
     glEnd();
     
     glBegin(GL_POLYGON);
 
     glColor3ub(rand() % 1, rand() % 1000, 0);
-    glVertex2f(40 + a, 500 + aa);
-    glVertex2f(40 + a, 450 + aa);
-    glVertex2f(50 + a, 450 + aa);
-    glVertex2f(50 + a, 500 + aa);
+    glVertex2f(125 + b, 500 + bb);
+    glVertex2f(125 + b, 341.25 + bb);
+    glVertex2f(130 + b, 341.25 + bb);
+    glVertex2f(130 + b, 500 + bb);
 
     glEnd();
     
      glBegin(GL_POLYGON);
 
     glColor3ub(rand() % 1, rand() % 1000, 0);
-    glVertex2f(40 + a, 350 + aa);
-    glVertex2f(40 + a, 10 + aa);
-    glVertex2f(50 + a, 10 + aa);
-    glVertex2f(50 + a, 350 + aa);
+    glVertex2f(125 + b, 286.25 + bb);
+    glVertex2f(125 + b, 0 + bb);
+    glVertex2f(130 + b, 0 + bb);
+    glVertex2f(130 + b, 286.25 + bb);
+
+    glEnd();
+
+    glBegin(GL_POLYGON);
+
+    glColor3ub(rand() % 1, rand() % 1000, 0);
+    glVertex2f(62.5 + b, 500 + bb);
+    glVertex2f(62.5 + b, 286.25 + bb);
+    glVertex2f(67.5 + b, 286.25 + bb);
+    glVertex2f(67.5 + b, 500 + bb);
+
+    glEnd();
+
+    glBegin(GL_POLYGON);
+
+    glColor3ub(rand() % 1, rand() % 1000, 0);
+    glVertex2f(62.5 + b, 231.25 + bb);
+    glVertex2f(62.5 + b, 0 + bb);
+    glVertex2f(67.5 + b, 0 + bb);
+    glVertex2f(67.5 + b, 231.25 + bb);
+
+    glEnd();
+
+    glBegin(GL_POLYGON);
+
+    glColor3ub(rand() % 1, rand() % 1000, 0);
+    glVertex2f(0 + b, 500 + bb);
+    glVertex2f(0 + b, 341.25 + bb);
+    glVertex2f(5 + b, 341.25 + bb);
+    glVertex2f(5 + b, 500 + bb);
+
+    glEnd();
+
+    glBegin(GL_POLYGON);
+
+    glColor3ub(rand() % 1, rand() % 1000, 0);
+    glVertex2f(0 + b, 286.25 + bb);
+    glVertex2f(0 + b, 0 + bb);
+    glVertex2f(5 + b, 0 + bb);
+    glVertex2f(5 + b, 286.25 + bb);
+
+    glEnd();
+
+    glBegin(GL_POLYGON);
+
+    glColor3ub(rand() % 1, rand() % 1000, 0);
+    glVertex2f(437.5 + b, 500 + bb);
+    glVertex2f(437.5 + b, 396.25 + bb);
+    glVertex2f(442.5 + b, 396.25 + bb);
+    glVertex2f(442.5 + b, 500 + bb);
+
+    glEnd();
+
+    glBegin(GL_POLYGON);
+
+    glColor3ub(rand() % 1, rand() % 1000, 0);
+    glVertex2f(437.5 + b, 341.25 + bb);
+    glVertex2f(437.5 + b, 0 + bb);
+    glVertex2f(442.5 + b, 0 + bb);
+    glVertex2f(442.5 + b, 341.25 + bb);
+
+    glEnd();
+
+    glBegin(GL_POLYGON);
+
+    glColor3ub(rand() % 1, rand() % 1000, 0);
+    glVertex2f(375 + b, 500 + bb);
+    glVertex2f(375 + b, 341.25 + bb);
+    glVertex2f(380 + b, 341.25 + bb);
+    glVertex2f(380 + b, 500 + bb);
+
+    glEnd();
+
+    glBegin(GL_POLYGON);
+
+    glColor3ub(rand() % 1, rand() % 1000, 0);
+    glVertex2f(375 + b, 286.25 + bb);
+    glVertex2f(375 + b, 0 + bb);
+    glVertex2f(380 + b, 0 + bb);
+    glVertex2f(380 + b, 286.25 + bb);
+
+    glEnd();
+
+    glBegin(GL_POLYGON);
+
+    glColor3ub(rand() % 1, rand() % 1000, 0);
+    glVertex2f(312.5 + b, 500 + bb);
+    glVertex2f(312.5 + b, 396.25 + bb);
+    glVertex2f(317.5 + b, 396.25 + bb);
+    glVertex2f(317.5 + b, 500 + bb);
+
+    glEnd();
+
+    glBegin(GL_POLYGON);
+
+    glColor3ub(rand() % 1, rand() % 1000, 0);
+    glVertex2f(312.5 + b, 341.25 + bb);
+    glVertex2f(312.5 + b, 0 + bb);
+    glVertex2f(317.5 + b, 0 + bb);
+    glVertex2f(317.5 + b, 341.25 + bb);
 
     glEnd();
 
@@ -154,30 +256,17 @@ void welcomeDisplay(void) {
 
 }
 
-void mov(void) {
-    if (a >= -500)
-        a = a - 7;
-    else
-        a = 700;
-
-    if (a < -500) {
-        aa = aa - 100;
-    }
-
-    if (aa < -251) {
-        aa = 100;
-    }
-}
 
 void display() {
     glClearColor(0.0, 0.6, 0.9, 0.0);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    if (moving == 1) {
+    /*if (moving == 1) {
         mov();
-    }
+    } */
 
     fish1();
     coral();
+
     
     glColor3f(0, 0, 0);
 
@@ -185,14 +274,80 @@ void display() {
     char msg1[] = "Score:";
     for (int i = 0; i < strlen(msg1); i++)
         glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, msg1[i]);
+
+    /*if (flag3 == 0) {
+        welcomeDisplay();
+    } */
+
     glutSwapBuffers();
 }
-void keys(unsigned char key,int x,int y) {
+
+/*void mov(void) {
+    if (b <= 1000)
+        b = b + 8.0;
+    else
+        b = -500;
+
+    if (b > 1000) {
+        bb = bb + 150;
+    }
+    if (bb > 251) {
+        bb = 50;
+    }
+} 
+
+void create_menu(void) {
+    glutCreateMenu(menu);
+    glutAttachMenu(GLUT_LEFT_BUTTON);
+    glutAttachMenu(GLUT_RIGHT_BUTTON);
+    glutAddMenuEntry("Start", 1);
+    glutAddMenuEntry("Pause", 2);
+    glutAddMenuEntry("Back", 3);
+    glutAddMenuEntry("Quit Game", 4);
+
+}
+
+void menu(int val) {
+    switch (val) {
+    case 1:
+        if (flag4 == 1 && moving == 0)
+            moving = 1;
+        break;
+
+    case 2:
+        glutIdleFunc(NULL);
+        glutDisplayFunc(display);
+        moving = 0;
+        break;
+
+    case 3:
+        moving = 0;
+        flag3 = 0;
+        flag4 = 0;
+        welcomeDisplay();
+        break;
+
+    case 4:
+        exit(0);
+        break;
+    }
+}
+
+void speed() {
+    b = b + 10;
+} */
+
+void keys(unsigned char key, int x, int y) {
     if (key == 'x') {
         glutDisplayFunc(display);
+        //flag3 = 1;
+        //flag4 = 1;
     }
+
+    //if score exceeds 200, increase speed
     glutPostRedisplay();
 }
+
 int main(int argc, char** argv)
 {
     glutInit(&argc, argv);
