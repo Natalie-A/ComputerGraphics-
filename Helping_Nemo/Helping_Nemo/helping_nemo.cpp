@@ -3,55 +3,120 @@
 #include<math.h>
 
 double a = 0, aa = -70;
+double b = 0, bb = 0;
+int score = 0;
+bool collide=false;
 
 void init(void) {  
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     gluOrtho2D(0, 500, 0, 500);
 }
+void coral() {
+
+    glBegin(GL_POLYGON);
+
+    glColor3f(0, 1, 0);
+    glVertex2f(200 + b, 500 + bb);
+    glVertex2f(200 + b, 400 + bb);
+    glVertex2f(210 + b, 400 + bb);
+    glVertex2f(210 + b, 500 + bb);
+
+    glEnd();
+
+    glBegin(GL_POLYGON);
+
+    glColor3f(0, 1, 0);
+    glVertex2f(200 + b, 250 + bb);
+    glVertex2f(200 + b, 10 + bb);
+    glVertex2f(210 + b, 10 + bb);
+    glVertex2f(210 + b, 250 + bb);
+
+    glEnd();
+
+    glBegin(GL_POLYGON);
+
+    glColor3f(0, 1, 0);
+    glVertex2f(120 + b, 500 + bb);
+    glVertex2f(120 + b, 300 + bb);
+    glVertex2f(130 + b, 300 + bb);
+    glVertex2f(130 + b, 500 + bb);
+
+    glEnd();
+
+    glBegin(GL_POLYGON);
+
+    glColor3f(0, 1, 0);
+    glVertex2f(120 + b, 200 + bb);
+    glVertex2f(120 + b, 10 + bb);
+    glVertex2f(130 + b, 10 + bb);
+    glVertex2f(130 + b, 200 + bb);
+
+    glEnd();
+
+    glBegin(GL_POLYGON);
+
+    glColor3f(0, 1, 0);
+    glVertex2f(40 + b, 500 + bb);
+    glVertex2f(40 + b, 450 + bb);
+    glVertex2f(50 + b, 450 + bb);
+    glVertex2f(50 + b, 500 + bb);
+
+    glEnd();
+
+    glBegin(GL_POLYGON);
+
+    glColor3f(0, 1, 0);
+    glVertex2f(40 + b, 350 + bb);
+    glVertex2f(40 + b, 10 + bb);
+    glVertex2f(50 + b, 10 + bb);
+    glVertex2f(50 + b, 350 + bb);
+
+    glEnd();
+}
 void fish1()
 {
     //the body
     glColor3f(1.0, 0.0, 0.0);
     glBegin(GL_POLYGON);
-    glVertex2d(367.5 + a, 312.5 + aa);
-    glVertex2d(375 + a, 306.25 + aa);
-    glVertex2d(392.5 + a, 312.5 + aa);
-    glVertex2d(375 + a, 317.75 + aa);
+    glVertex2d(267.5 + a, 312.5 + aa);
+    glVertex2d(275 + a, 306.25 + aa);
+    glVertex2d(292.5 + a, 312.5 + aa);
+    glVertex2d(275 + a, 317.75 + aa);
     glEnd();
 
     //the tail
     glBegin(GL_POLYGON);
-    glVertex2f(390 + a, 312.5 + aa);
+    glVertex2d(290 + a, 312.5 + aa);
     glColor3ub(rand() % 1, rand() % 1000, rand() % 1000);
-    glVertex2f(401.25 + a, 317.5 + aa);
-    glVertex2f(398.75 + a, 312.5 + aa);
-    glVertex2f(401.25 + a, 306.75 + aa);
+    glVertex2d(301.25 + a, 317.5 + aa);
+    glVertex2d(298.75 + a, 312.5 + aa);
+    glVertex2d(301.25 + a, 306.75 + aa);
     glEnd();
 
     //the upper fin
     glBegin(GL_TRIANGLES);
     glColor3ub(rand() % 1, rand() % 1000, rand() % 1000);
-    glVertex2d(375.5 + a, 318.25 + aa);
+    glVertex2d(275.5 + a, 318.25 + aa);
     glColor3f(1.0, 0.0, 0.0);
-    glVertex2d(385 + a, 327.25 + aa);
-    glVertex2d(380 + a, 315 + aa);
+    glVertex2d(285 + a, 327.25 + aa);
+    glVertex2d(280 + a, 315 + aa);
     glEnd();
 
     //the lower fin
     glBegin(GL_TRIANGLES);
     glColor3ub(rand() % 1, rand() % 1000, 0);
-    glVertex2f(375.5 + a, 307 + aa);
+    glVertex2d(275.5 + a, 307 + aa);
     glColor3f(1.0, 0.0, 0.0);
-    glVertex2d(385 + a, 300 + aa);
-    glVertex2d(380 + a, 310 + aa);
+    glVertex2d(285 + a, 300 + aa);
+    glVertex2d(280 + a, 310 + aa);
     glEnd();
 
     //the eye
     glColor3f(0.0, 0.0, 0.0);
     glPointSize(2.0);
     glBegin(GL_POINTS);
-    glVertex2d(370 + a, 313.75 + aa);
+    glVertex2d(270 + a, 313.75 + aa);
     glEnd();
 }
 
@@ -84,9 +149,68 @@ void welcomeDisplay(void) {
     glutSwapBuffers();
 
 }
+char* convertIntegerToChar(int N)
+{
+
+    // Count digits in number N
+    int m = N;
+    int digit = 0;
+    while (m>0) {
+
+        // Increment number of digits
+        digit++;
+
+        // Truncate the last
+        // digit from the number
+        m /= 10;
+    }
+
+    // Declare char array for result
+    char* arr;
+
+    // Declare duplicate char array
+    char arr1[10];
+
+    // Memory allocation of array
+    arr = (char*)malloc(digit);
+
+    // Separating integer into digits and
+    // accommodate it to character array
+    int index = 0;
+    while (N) {
+
+        // Separate last digit from
+        // the number and add ASCII
+        // value of character '0' is 48
+        arr1[++index] = N % 10 + '0';
+
+        // Truncate the last
+        // digit from the number
+        N /= 10;
+    }
+
+    // Reverse the array for result
+    int i;
+    for (i = 0; i < index; i++) {
+        arr[i] = arr1[index - i];
+    }
+
+    // Char array truncate by null
+    arr[i] = '\0';
+
+    // Return char array
+    return (char*)arr;
+}
+void gameOver() {
+    char msg1[] = "Game Over";
+    for (int i = 0; i < strlen(msg1); i++)
+        glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, msg1[i]);
+
+}
 void display() {
     glClearColor(0.0, 0.6, 0.9, 0.0);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    coral();
     fish1();
 
     glColor3f(0, 0, 0);
@@ -94,13 +218,29 @@ void display() {
     char msg1[] = "Score:";
     for (int i = 0; i < strlen(msg1); i++)
         glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, msg1[i]);
+        
+    char* msg2 = convertIntegerToChar(score);
+    for (int i = 0; i < strlen(msg2); i++)
+        glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, msg2[i]);
+
     glutSwapBuffers();
 }
 void movUp(void) {
-    aa = aa + 10;
+    aa = aa + 20;
 }
 void movDown(void) {
-    aa = aa - 10;
+    aa = aa - 20;
+}
+void movCoral(void) {
+    if (b < 500) {
+        b = b + 0.1;
+        score = score + 1;
+    }
+    else {
+        b = 0;
+        score = score + 1;
+    }
+    glutPostRedisplay();
 }
 void keys(unsigned char key,int x,int y) {
     if (key == 'x') {
@@ -124,6 +264,7 @@ int main(int argc, char** argv)
     glutDisplayFunc(welcomeDisplay);
     glutKeyboardFunc(keys);
     init();
+    glutIdleFunc(movCoral);
     glutMainLoop();
     glEnable(GL_DEPTH_TEST);
     return 0;
