@@ -3,11 +3,12 @@
 #include<math.h>
 
 double a = 0, aa = -70;
-double b = 0, bb = 0;
+double b,bb = 0;
 int score = 0;
-bool collide=false;
+bool collide = false;
+int movd=4;
 
-void init(void) {  
+void init(void) {
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     gluOrtho2D(0, 500, 0, 500);
@@ -15,63 +16,148 @@ void init(void) {
 void coral() {
 
     glBegin(GL_POLYGON);
-
     glColor3f(0, 1, 0);
-    glVertex2f(200 + b, 500 + bb);
-    glVertex2f(200 + b, 400 + bb);
-    glVertex2f(210 + b, 400 + bb);
-    glVertex2f(210 + b, 500 + bb);
-
+    glVertex2f(10 + b, 150 + bb);
+    glVertex2f(10 + b, 500 + bb);
+    glVertex2f(15 + b, 500 + bb);
+    glVertex2f(15 + b, 150 + bb);
     glEnd();
 
     glBegin(GL_POLYGON);
-
     glColor3f(0, 1, 0);
-    glVertex2f(200 + b, 250 + bb);
-    glVertex2f(200 + b, 10 + bb);
-    glVertex2f(210 + b, 10 + bb);
-    glVertex2f(210 + b, 250 + bb);
-
+    glVertex2f(10 + b, 50 + bb);
+    glVertex2f(10 + b, 0 + bb);
+    glVertex2f(15 + b, 0 + bb);
+    glVertex2f(15 + b, 50 + bb);
     glEnd();
 
     glBegin(GL_POLYGON);
-
     glColor3f(0, 1, 0);
+    glVertex2f(65 + b, 350 + bb);
+    glVertex2f(65 + b, 500 + bb);
+    glVertex2f(70 + b, 500 + bb);
+    glVertex2f(70 + b, 350 + bb);
+    glEnd();
+
+    glBegin(GL_POLYGON);
+    glColor3f(0, 1, 0);
+    glVertex2f(65 + b, 250 + bb);
+    glVertex2f(65 + b, 0 + bb);
+    glVertex2f(70 + b, 0 + bb);
+    glVertex2f(70 + b, 250 + bb);
+    glEnd();
+
+    glBegin(GL_POLYGON);
+    glColor3f(0, 1, 0);
+    glVertex2f(120 + b, 250 + bb);
     glVertex2f(120 + b, 500 + bb);
-    glVertex2f(120 + b, 300 + bb);
-    glVertex2f(130 + b, 300 + bb);
-    glVertex2f(130 + b, 500 + bb);
+    glVertex2f(125 + b, 500 + bb);
+    glVertex2f(125 + b, 250 + bb);
+    glEnd();
 
+
+    glBegin(GL_POLYGON);
+    glColor3f(0, 1, 0);
+    glVertex2f(120 + b, 150 + bb);
+    glVertex2f(120 + b, 0 + bb);
+    glVertex2f(125 + b, 0 + bb);
+    glVertex2f(125 + b, 150 + bb);
     glEnd();
 
     glBegin(GL_POLYGON);
-
     glColor3f(0, 1, 0);
-    glVertex2f(120 + b, 200 + bb);
-    glVertex2f(120 + b, 10 + bb);
-    glVertex2f(130 + b, 10 + bb);
-    glVertex2f(130 + b, 200 + bb);
-
+    glVertex2f(175 + b, 400 + bb);
+    glVertex2f(175 + b, 500 + bb);
+    glVertex2f(180 + b, 500 + bb);
+    glVertex2f(180 + b, 400 + bb);
     glEnd();
 
     glBegin(GL_POLYGON);
-
     glColor3f(0, 1, 0);
-    glVertex2f(40 + b, 500 + bb);
-    glVertex2f(40 + b, 450 + bb);
-    glVertex2f(50 + b, 450 + bb);
-    glVertex2f(50 + b, 500 + bb);
-
+    glVertex2f(175 + b, 300 + bb);
+    glVertex2f(175 + b, 0 + bb);
+    glVertex2f(180 + b, 0 + bb);
+    glVertex2f(180 + b, 300 + bb);
     glEnd();
 
     glBegin(GL_POLYGON);
-
     glColor3f(0, 1, 0);
-    glVertex2f(40 + b, 350 + bb);
-    glVertex2f(40 + b, 10 + bb);
-    glVertex2f(50 + b, 10 + bb);
-    glVertex2f(50 + b, 350 + bb);
+    glVertex2f(230 + b, 300 + bb);
+    glVertex2f(230 + b, 500 + bb);
+    glVertex2f(235 + b, 500 + bb);
+    glVertex2f(235 + b, 300 + bb);
+    glEnd();
 
+    glBegin(GL_POLYGON);
+    glColor3f(0, 1, 0);
+    glVertex2f(230 + b, 200 + bb);
+    glVertex2f(230 + b, 0 + bb);
+    glVertex2f(235 + b, 0 + bb);
+    glVertex2f(235 + b, 200 + bb);
+    glEnd();
+
+    glBegin(GL_POLYGON);
+    glColor3f(0, 1, 0);
+    glVertex2f(285 + b, 250 + bb);
+    glVertex2f(285 + b, 500 + bb);
+    glVertex2f(290 + b, 500 + bb);
+    glVertex2f(290 + b, 250 + bb);
+    glEnd();
+
+    glBegin(GL_POLYGON);
+    glColor3f(0, 1, 0);
+    glVertex2f(285 + b, 150 + bb);
+    glVertex2f(285 + b, 0 + bb);
+    glVertex2f(290 + b, 0 + bb);
+    glVertex2f(290 + b, 150 + bb);
+    glEnd();
+
+    glBegin(GL_POLYGON);
+    glColor3f(0, 1, 0);
+    glVertex2f(340 + b, 400 + bb);
+    glVertex2f(340 + b, 500 + bb);
+    glVertex2f(345 + b, 500 + bb);
+    glVertex2f(345 + b, 400 + bb);
+    glEnd();
+
+    glBegin(GL_POLYGON);
+    glColor3f(0, 1, 0);
+    glVertex2f(340 + b, 300 + bb);
+    glVertex2f(340 + b, 0 + bb);
+    glVertex2f(345 + b, 0 + bb);
+    glVertex2f(345 + b, 300 + bb);
+    glEnd();
+
+    glBegin(GL_POLYGON);
+    glColor3f(0, 1, 0);
+    glVertex2f(395 + b, 350 + bb);
+    glVertex2f(395 + b, 500 + bb);
+    glVertex2f(400 + b, 500 + bb);
+    glVertex2f(400 + b, 350 + bb);
+    glEnd();
+
+    glBegin(GL_POLYGON);
+    glColor3f(0, 1, 0);
+    glVertex2f(395 + b, 250 + bb);
+    glVertex2f(395 + b, 0 + bb);
+    glVertex2f(400 + b, 0 + bb);
+    glVertex2f(400 + b, 250 + bb);
+    glEnd();
+
+    glBegin(GL_POLYGON);
+    glColor3f(0, 1, 0);
+    glVertex2f(450 + b, 300 + bb);
+    glVertex2f(450 + b, 500 + bb);
+    glVertex2f(455 + b, 500 + bb);
+    glVertex2f(455 + b, 300 + bb);
+    glEnd();
+   
+    glBegin(GL_POLYGON);
+    glColor3f(0, 1, 0);
+    glVertex2f(450 + b, 200 + bb);
+    glVertex2f(450 + b, 0 + bb);
+    glVertex2f(455 + b, 0 + bb);
+    glVertex2f(455 + b, 200 + bb);
     glEnd();
 }
 void fish1()
@@ -155,7 +241,7 @@ char* convertIntegerToChar(int N)
     // Count digits in number N
     int m = N;
     int digit = 0;
-    while (m>0) {
+    while (m > 0) {
 
         // Increment number of digits
         digit++;
@@ -218,7 +304,7 @@ void display() {
     char msg1[] = "Score:";
     for (int i = 0; i < strlen(msg1); i++)
         glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, msg1[i]);
-        
+
     char* msg2 = convertIntegerToChar(score);
     for (int i = 0; i < strlen(msg2); i++)
         glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, msg2[i]);
@@ -233,16 +319,15 @@ void movDown(void) {
 }
 void movCoral(void) {
     if (b < 500) {
-        b = b + 0.1;
-        score = score + 1;
+        b = b + 0.05;
+        score += 1;
     }
     else {
         b = 0;
-        score = score + 1;
     }
     glutPostRedisplay();
 }
-void keys(unsigned char key,int x,int y) {
+void keys(unsigned char key, int x, int y) {
     if (key == 'x') {
         glutDisplayFunc(display);
     }
