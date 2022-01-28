@@ -205,7 +205,6 @@ void fish1()
     glVertex2d(270 + a, 313.75 + aa);
     glEnd();
 }
-
 void welcomeDisplay(void) {
     glClearColor(1, 1, 1, 1);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -296,9 +295,10 @@ void gameOver() {
 void display() {
     glClearColor(0.0, 0.6, 0.9, 0.0);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    coral();
     fish1();
+    coral();
 
+    
     glColor3f(0, 0, 0);
     glRasterPos3f(250, 450, 0);
     char msg1[] = "Score:";
@@ -311,6 +311,7 @@ void display() {
 
     glutSwapBuffers();
 }
+
 void movUp(void) {
     aa = aa + 20;
 }
@@ -330,13 +331,20 @@ void movCoral(void) {
 void keys(unsigned char key, int x, int y) {
     if (key == 'x') {
         glutDisplayFunc(display);
+        //flag3 = 1;
+        //flag4 = 1;
     }
+
     if (key == 'u') {
         movUp();
     }
     if (key == 'd') {
         movDown();
     }
+
+
+    //if score exceeds 200, increase speed
+
     glutPostRedisplay();
 }
 int main(int argc, char** argv)
