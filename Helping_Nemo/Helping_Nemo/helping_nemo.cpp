@@ -3,10 +3,10 @@
 #include<math.h>
 
 
-double a = 0, aa = -70;
+//double a = 0, aa = -70;
 
 float a = 0, aa = -70, b = 0, bb = 0, flag = 0, flag3 = 0, flag4 = 0;
-int moving = 0;
+//int moving = 0;
 //void create_menu(void);
 //void menu(int);
 //void mov(void);
@@ -288,7 +288,7 @@ void movUp(void) {
 void movDown(void) {
     aa = aa - 10;
 }
-void keys(unsigned char key,int x,int y) {
+//void keys(unsigned char key,int x,int y) {
 
 
 /*void mov(void) {
@@ -346,7 +346,7 @@ void speed() {
     b = b + 10;
 } */
 
-void keys(unsigned char key, int x, int y) {
+    void keys(unsigned char key, int x, int y) {
 
     if (key == 'x') {
         glutDisplayFunc(display);
@@ -367,17 +367,17 @@ void keys(unsigned char key, int x, int y) {
     glutPostRedisplay();
 }
 
-int main(int argc, char** argv)
-{
-    glutInit(&argc, argv);
-    glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
-    glutInitWindowSize(500, 500);
-    glutInitWindowPosition(0, 50);
-    glutCreateWindow("Helping_Nemo");
-    glutDisplayFunc(welcomeDisplay);
-    glutKeyboardFunc(keys);
-    init();
-    glutMainLoop();
-    glEnable(GL_DEPTH_TEST);
-    return 0;
-}
+    int main(int argc, char** argv)
+    {
+        glutInit(&argc, argv);
+        glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
+        glutInitWindowSize(500, 500);
+        glutInitWindowPosition(0, 50);
+        glutCreateWindow("Helping_Nemo");
+        glutDisplayFunc(welcomeDisplay);
+        glutKeyboardFunc(keys);
+        init();
+        glutMainLoop();
+        glEnable(GL_DEPTH_TEST);
+        return 0;
+    }
